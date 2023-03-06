@@ -1,0 +1,60 @@
+<div class="flex w-full" data-prefetch>
+  <nav class="w-full">
+    <div class="flex flex-col align-center text-center">
+      <h1 class="text-6xl">
+        <a href="/">Santiago Gutierrez</a>
+      </h1>
+      <p class="">I can't see because of the fate</p>
+    </div>
+
+    <ul class="flex items-end justify-end space-x-10">
+      <li>
+        <a class="text-4xl" href="/">Blog</a>
+      </li>
+      <li>
+        <a class="text-4xl" href="/">Art</a>
+      </li>
+
+      <li>
+        <a class="text-4xl" href="/books">Books</a>
+      </li>
+      <li>
+        <a class="text-4xl" href="/">The Shrine</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<style>
+  .breathe {
+    transition: 1000ms ease;
+  }
+  .breathe:hover {
+    letter-spacing: 2px;
+  }
+  p {
+    font-size: 20px;
+  }
+  /* Define the animation */
+  @keyframes pulse {
+    0% {
+      opacity: 0.2;
+      font-size: 20px;
+    }
+    50% {
+      opacity: 1;
+      font-size: 21px;
+    }
+    100% {
+      opacity: 0.2;
+      font-size: 20px;
+    }
+  }
+
+  /* Apply the animation to the text element */
+  .text-pulse {
+    animation-name: pulse;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+</style>

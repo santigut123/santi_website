@@ -1,0 +1,58 @@
+---
+import NavLink from "./NavLink.astro";
+---
+
+<div class="flex w-full pr-10 text-harlequin-700" data-prefetch>
+  <nav class="flex w-full">
+    <div class="flex flex-col align-center text-center">
+      <h1 class="text-6xl">
+        <a class="breathe" href="/">Santiago Gutierrez</a>
+      </h1>
+      <p class="text-pulse">I can't see because of the fate</p>
+    </div>
+
+    <ul class="flex justify-end space-x-10 w-full">
+      <NavLink text="Blog" ref="/blog/" />
+
+      <NavLink text="Art" ref="/art/" />
+
+      <NavLink text="Books" ref="/books/" />
+
+      <NavLink text="The Shrine" ref="/shrine/" />
+    </ul>
+  </nav>
+</div>
+<style>
+  .breathe {
+    transition: 1000ms ease;
+  }
+  .breathe:hover {
+    letter-spacing: 2px;
+  }
+  p {
+    font-size: 20px;
+  }
+  /* Define the animation */
+  @keyframes pulse {
+    0% {
+      opacity: 0.2;
+      font-size: 20px;
+    }
+    50% {
+      opacity: 1;
+      font-size: 21px;
+    }
+    100% {
+      opacity: 0.2;
+      font-size: 20px;
+    }
+  }
+
+  /* Apply the animation to the text element */
+  .text-pulse {
+    animation-name: pulse;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+</style>
