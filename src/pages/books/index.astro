@@ -1,9 +1,37 @@
 ---
 import Header from "../../components/homepage/Header.astro";
 import Layout from "../../layouts/Layout.astro";
+import BookDiv from "../../components/books/BookDiv.astro";
+import { getCollection } from "astro:content";
+const booksCollection = await getCollection("books");
+console.log(booksCollection);
 ---
 
 <Layout title="Books">
   <Header />
-  <h1>BOOKS</h1>
+  <div class="flex items-center text-center align-middle justify-center py-10">
+    <h1 class="text-6xl">Books</h1>
+    <img src="/assets/book.gif" width="50px" height="50px" class="rounded-md" />
+  </div>
+  <p class="w-full text-center">
+    These are all books I've read. I have an affinity for books that break or
+    play around with the rules of literature or make my head hurt after I'm done
+    reading them them. Click on any of them to get my opinion and thoughts. Some
+    might just be a star rating if I don't think there's anything interesting to
+    say or I haven't gotten to writing about it
+    <div
+      class="book-list flex flex-col md:flex-row max-w-full w-full flex-wrap justify-center justify-items-center items-center"
+    >
+      {
+        booksCollection.map((book) => (
+          <BookDiv
+            title={book.data.title}
+            author={book.data.author}
+            OLID={book.data.OLID}
+            link={"/books/" + book.slug}
+          />
+        ))
+      }
+    </div>
+  </p>
 </Layout>

@@ -1,9 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/homepage/Header.astro";
-let nameImageSrc = "/assets/homepage/name_graphic.png";
+import NameAndQuote from "../components/homepage/NameAndQuote.astro";
+import InfoPanel from "../components/homepage/InfoPanel.astro";
+import { getCollection } from "astro:content";
+
+const amountOfPosts = 5;
+const allPosts = await getCollection("blog");
+const latest = allPosts.slice(0, amountOfPosts);
 ---
 
 <Layout title="Santi's Website">
   <Header />
+  <NameAndQuote />
+  <div class="flex flex-col px-10 align-center justify-center flex-wrap">
+    <InfoPanel />
+    <div
+      class="flex pt-10 text-center align-center items-center justify-center"
+    >
+      <div class="flex flex-col">
+        <h1 class="text-4xl">Latest Posts:</h1>
+        {
+          latest.map((post) => (
+            <a class="text-lg" href={"/blog/" + post.slug}>
+              {post.data.title}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </Layout>

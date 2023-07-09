@@ -1,9 +1,16 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/homepage/Header.astro";
+
+import { getCollection } from "astro:content";
+const blogCollection = await getCollection("blog");
+const tags = ["Programming", "Technology", "Art", ""];
+const selectedTags = [];
 ---
 
 <Layout title="Blog">
   <Header />
-  <h1>BLOG</h1>
+  <div class="flex items-center justify-center">
+    <h1 class="text-6xl">Blog</h1>
+  </div>
 </Layout>

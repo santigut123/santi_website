@@ -1,0 +1,12 @@
+---
+let { rating } = Astro.props;
+---
+
+<div class="rating">
+  <h1>Rating:</h1>
+  {
+    Array.from({ length: rating }, (_, i) => i).map(() => (
+      <span class="star text-5xl">★</span>
+    ))
+  }
+</div>
