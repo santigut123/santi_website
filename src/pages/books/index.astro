@@ -19,19 +19,19 @@ console.log(booksCollection);
     reading them them. Click on any of them to get my opinion and thoughts. Some
     might just be a star rating if I don't think there's anything interesting to
     say or I haven't gotten to writing about it
-    <div
-      class="book-list flex flex-col md:flex-row max-w-full w-full flex-wrap justify-center justify-items-center items-center"
-    >
-      {
-        booksCollection.map((book) => (
-          <BookDiv
-            title={book.data.title}
-            author={book.data.author}
-            OLID={book.data.OLID}
-            link={"/books/" + book.slug}
-          />
-        ))
-      }
-    </div>
   </p>
+  <div
+    class="book-list flex flex-col md:flex-row max-w-full w-full flex-wrap justify-center justify-items-center items-center"
+  >
+    {
+      booksCollection.map((book) => (
+        <BookDiv
+          title={book.data.title}
+          author={book.data.author}
+          OLID={book.data.OLID}
+          link={"/books/" + book.slug}
+        />
+      ))
+    }
+  </div>
 </Layout>

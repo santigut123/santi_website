@@ -1,6 +1,6 @@
 ---
-title: Four
-tags: ["Bad"]
+title: How she learned to cry
+tags: ["technology","art"]
 publishDate: 2022-01-05
 ---
 
