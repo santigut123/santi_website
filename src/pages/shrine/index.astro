@@ -9,34 +9,16 @@ console.log(booksCollection);
 
 <Layout title="The Shrine">
   <Header />
-  <div class="flex items-center text-center align-middle justify-center py-10">
-    <h1 class="text-6xl">Books</h1>
-    <img
-      src="/public/assets/book.gif"
-      width="50px"
-      height="50px"
-      class="rounded-md"
-    />
+  <div
+    class="flex flex-col items-center text-center align-middle justify-center py-10"
+  >
+    <h1 class="text-6xl">The Shrine</h1>
+    <p class="w-full text-center">
+      The shrine is where my favorite things live. These things have changed my
+      life in some way, sometimes opening a door to things I didn't know was
+      possible..
+    </p>
+
+    <h1 class="text-6xl">THIS IS PAGE IS A WORK IN PROGRESS</h1>
   </div>
-  <p class="w-full text-center">
-    These are all books I've read. I have an affinity for books that break or
-    play around with the rules of literature or make my head hurt after I'm done
-    reading them them. Click on any of them to get my opinion and thoughts. Some
-    might just be a star rating if I don't think there's anything interesting to
-    say or I haven't gotten to writing about it
-    <div
-      class="book-list flex flex-col md:flex-row max-w-full w-full flex-wrap justify-center justify-items-center items-center"
-    >
-      {
-        booksCollection.map((book) => (
-          <BookDiv
-            title={book.data.title}
-            author={book.data.author}
-            OLID={book.data.OLID}
-            link={"/books/" + book.slug}
-          />
-        ))
-      }
-    </div>
-  </p>
 </Layout>
