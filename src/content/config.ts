@@ -24,6 +24,7 @@ const booksCollection = defineCollection({
     rating: z.number(),
   }),
 });
+/*
 const shrineCollection = defineCollection({
   schema: z.object({
     name: z.string(),
@@ -31,10 +32,11 @@ const shrineCollection = defineCollection({
     category: z.string(),
   }),
 });
+*/
 
 export const collections = {
   "blog": blogCollection,
   "quotes": quotesCollection,
   "books": booksCollection,
-  "shrine": shrineCollection,
+  // "shrine": shrineCollection,
 };
