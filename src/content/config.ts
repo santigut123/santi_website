@@ -27,7 +27,9 @@ const booksCollection = defineCollection({
 const shrineCollection = defineCollection({
   schema: z.object({
     name: z.string(),
-    pictureURL: z.string(),
+    image: z.string(),
+    link: z.string(),
+    hasContent: z.boolean(),
     category: z.string(),
   }),
 });
@@ -36,5 +38,5 @@ export const collections = {
   blog: blogCollection,
   quotes: quotesCollection,
   books: booksCollection,
-  // "shrine": shrineCollection,
+  shrine: shrineCollection,
 };

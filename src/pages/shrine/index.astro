@@ -1,24 +1,47 @@
 ---
 import Header from "../../components/homepage/Header.astro";
 import Layout from "../../layouts/Layout.astro";
-import ShrineDiv from "../../components/shrine/ShrineDiv.astro"
+import ShrineDiv from "../../components/shrine/ShrineDiv.astro";
 import { getCollection } from "astro:content";
-const booksCollection = await getCollection("books");
-console.log(booksCollection);
+const shrineCollection = await getCollection("shrine");
+const shrineCategories = ["Artists", "Movies", "Tools", "Teachers"];
 ---
 
 <Layout title="The Shrine">
   <Header />
   <div
-    class="flex flex-col items-center text-center align-middle justify-center py-10"
+    class="flex flex-col items-center text-center align-middle justify-center p-10"
   >
     <h1 class="text-6xl">The Shrine</h1>
     <p class="w-full text-center">
       The shrine is where my favorite things live. These things have changed my
-      life in some way, sometimes opening a door to things I didn't know was
-      possible..
+      life in some way.
     </p>
+    <div class="flex w-full flex-col p-10">
+      {
+        shrineCategories.map((category) => (
+          <div class="text-left">
+            <h1>{category}</h1>
+            <div>
+              {
+            shrineCollection
+              .filter((item) => item.data.category === category)
+              .map((item) => (
+                <ShrineDiv
+                  name={item.data.name}
+                  image={item.data.image}
+                  link={item.data.link}
+                />
+              ))
+              }
 
-    <h1 class="text-6xl">THIS IS PAGE IS A WORK IN PROGRESS</h1>
+            <div>
+          </div>
+          </div>
+          </div>
+          
+        ))
+      }
+    </div>
   </div>
 </Layout>
