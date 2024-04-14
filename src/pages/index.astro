@@ -21,7 +21,7 @@ const latest = allPosts.slice(0, amountOfPosts);
       <div class="flex flex-col">
         <h1 class="text-4xl">Latest Posts:</h1>
         {
-          latest.map((post) => (
+          latest.filter((post)=> post.data.published==true).map((post) => (
             <a class="text-lg" href={"/blog/" + post.slug}>
               {post.data.title}
             </a>
