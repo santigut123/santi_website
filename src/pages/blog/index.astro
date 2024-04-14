@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/homepage/Header.astro";
 import BlogCard from "../../components/blog/BlogCard.astro";
 import { getCollection } from "astro:content";
-import {TAGS} from "./tags.js"
+import { TAGS } from "./tags.js";
 
 const blogCollection = await getCollection("blog");
 const selectedTag = "";
@@ -15,35 +15,48 @@ function getTagPath(tag: string) {
 <Layout title="Blog">
   <Header />
   <div class="flex flex-col items-center justify-center w-full">
-      <h1 class="text-6xl py-4">Blog</h1>
-      <ul class="w-full flex flex-wrap">
+    <h1 class="text-6xl py-4">Blog</h1>
+    <ul class="w-full flex flex-wrap">
       <h2 class="px-4 text-xl">Topics:</h2>
-      
-        {
-          
-          TAGS.map((tag) => {
-            return (
-              <li class={selectedTag == tag ? "font-bold px-4 " : "px-4"}>
-                <a class="text-red-500" href={getTagPath(tag)}>{tag}</a>
-              </li>
-            );
-          })
-        }
-      </ul>
-      <div class="flex min-w-full flex-wrap">
-        {
-          blogCollection.map((blog) =>{
-            if(blog.data.tags.includes(selectedTag)||selectedTag==""){
-              return <BlogCard
-              title={blog.data.title}
-              date={blog.data.publishDate}
-              tags={blog.data.tags}
-              slug={blog.slug}
-            />
+
+      {
+        TAGS.map((tag) => {
+          return (
+            <li class={selectedTag == tag ? "font-bold px-4 " : "px-4"}>
+              <a class="text-red-500" href={getTagPath(tag)}>
+                {tag}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+    <div class="flex min-w-full flex-wrap">
+      {
+        blogCollection
+          .filter((blog) => {
+            if (blog.data.published == false) {
+              return false;
             }
-            return; }
-            )
-        }
-      </div>
+            if (selectedTag == "") {
+              return true;
+            }
+
+            return blog.data.tags.includes(selectedTag);
+          })
+
+          .map((blog) => {
+            return (
+              <BlogCard
+                title={blog.data.title}
+                date={blog.data.publishDate}
+                tags={blog.data.tags}
+                slug={blog.slug}
+              />
+            );
+            return;
+          })
+      }
     </div>
+  </div>
 </Layout>

@@ -6,9 +6,11 @@ function getTagPath(tag: string) {
 }
 ---
 
-<div class="w-80 min-h-32 outline outline-4 mx-3 my-4 px-4">
-  <h1 class=""><a href={blogPath}>{title}</a></h1>
-  <div class="flex">
-    {tags.map((tag: string) => <a href={getTagPath(tag)}>|{tag}|</a>)}
+<a href={blogPath}>
+  <div class="w-80 min-h-32 outline outline-4 mx-3 my-4 px-4">
+    <h1 class="">{title}</h1>
+    <div class="flex">
+      {tags.map((tag: string) => <a href={getTagPath(tag)}>|{tag}|</a>)}
+    </div>
   </div>
-</div>
+</a>
