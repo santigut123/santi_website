@@ -1,13 +1,12 @@
 ---
-const { title, author, OLID, link } = Astro.props;
+const { name, image,link } = Astro.props;
 
-const coverImageUrl = `https://covers.openlibrary.org/b/olid/${OLID}-M.jpg`;
 ---
 
 <a href={link}>
   <div class="book-item p-10 drop-shadow-md">
-    <img src={coverImageUrl} alt={title} + "cover image" />
-    <h3 class="w-20 italic font-bold">{title}</h3>
-    <p>{author}</p>
+    <img src={image} alt={name} + "cover image" class="w-72" />
+    <h3 class="w-20 italic font-bold">{name}</h3>
+    <p></p>
   </div>
 </a>

@@ -4,6 +4,7 @@ const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
+    published: z.boolean(),
     publishDate: z.date(),
   }),
 });
@@ -24,19 +25,19 @@ const booksCollection = defineCollection({
     rating: z.number(),
   }),
 });
-/*
 const shrineCollection = defineCollection({
   schema: z.object({
     name: z.string(),
-    pictureURL: z.string(),
+    image: z.string(),
+    link: z.string(),
+    hasContent: z.boolean(),
     category: z.string(),
   }),
 });
-*/
 
 export const collections = {
-  "blog": blogCollection,
-  "quotes": quotesCollection,
-  "books": booksCollection,
-  // "shrine": shrineCollection,
+  blog: blogCollection,
+  quotes: quotesCollection,
+  books: booksCollection,
+  shrine: shrineCollection,
 };
