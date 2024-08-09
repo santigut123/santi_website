@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import ShrineDiv from "../../components/shrine/ShrineDiv.astro";
 import { getCollection } from "astro:content";
 const shrineCollection = await getCollection("shrine");
-const shrineCategories = ["People","Art", "Tools"];
+const shrineCategories = ["People", "Art", "Tools"];
 ---
 
 <Layout title="The Shrine">
@@ -17,29 +17,25 @@ const shrineCategories = ["People","Art", "Tools"];
       The shrine is where my favorite things live. These things have changed my
       life in some way.
     </p>
-    <div class="flex w-full flex-col p-10 flex-wrap">
+    <div class="flex w-full flex-col md:flex-row p-10 flex-wrap">
       {
         shrineCategories.map((category) => (
           <div class="text-left">
             <h1>{category}</h1>
-            <div class="flex w-full ">
-              {
-            shrineCollection
-              .filter((item) => item.data.category === category)
-              .map((item) => (
-                <ShrineDiv
-                  name={item.data.name}
-                  image={item.data.image}
-                  link={item.data.link}
-                />
-              ))
-              }
+            <div class="flex flex-col md:flex-row w-full ">
+              {shrineCollection
+                .filter((item) => item.data.category === category)
+                .map((item) => (
+                  <ShrineDiv
+                    name={item.data.name}
+                    image={item.data.image}
+                    link={item.data.link}
+                  />
+                ))}
 
-            <div>
+              <div />
+            </div>
           </div>
-          </div>
-          </div>
-
         ))
       }
     </div>

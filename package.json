@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "santi website",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -12,21 +12,13 @@
     "sst:dev": "sst dev"
   },
   "dependencies": {
-<<<<<<< Updated upstream
     "@astrojs/check": "^0.3.4",
-    "@astrojs/svelte": "^4.0.3",
-    "@astrojs/tailwind": "^5.0.2",
-    "astro": "^3.4.0",
     "svelte": "^4.2.2",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.3.3"
-=======
+    "typescript": "^5.3.3",
     "@astrojs/svelte": "^4.0.4",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^3.6.5",
-    "svelte": "^4.2.14",
-    "tailwindcss": "^3.4.3"
->>>>>>> Stashed changes
+    "astro": "^3.6.5"
   },
   "devDependencies": {
     "astro-sst": "^2.41.4",
