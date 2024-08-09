@@ -2,7 +2,7 @@
 title: Response to Atheism
 tags: ["Theology","Philosophy"]
 publishDate: 2022-01-06
-published: true
+published: false
 ---
 # Introduction
 
